@@ -19,7 +19,12 @@ Example usage:
 """
 
 import json
-from typing import Any, Protocol, runtime_checkable
+import logging
+from typing import Any
+
+
+# Configure module logger
+logger = logging.getLogger(__name__)
 
 
 # System prompt for LLM-as-Judge evaluation
@@ -54,28 +59,6 @@ Respond ONLY with a valid JSON object in this exact format:
 {"score": <float between 0.0 and 1.0>, "rationale": "<brief explanation>"}
 
 Do not include any other text before or after the JSON object."""
-
-
-@runtime_checkable
-class LLMClient(Protocol):
-    """Protocol defining the interface for an LLM client.
-
-    This protocol allows LLMJudge to work with any client that implements
-    a chat completions interface similar to OpenAI's API.
-
-    The client must have a `chat.completions.create` method that accepts:
-        - model: str - The model identifier
-        - messages: list - A list of message dictionaries with 'role' and 'content'
-        - temperature: float - Sampling temperature
-
-    And returns an object with:
-        - choices[0].message.content: str - The generated response text
-    """
-
-    @property
-    def chat(self) -> Any:
-        """Access the chat interface."""
-        ...
 
 
 class LLMJudge:
@@ -207,7 +190,15 @@ Please evaluate the ANSWER and provide your assessment as a JSON object."""
 
             # Validate and clamp score to [0.0, 1.0]
             score = float(result["score"])
+            original_score = score
             score = max(0.0, min(1.0, score))
+
+            # Log if score was clamped
+            if score != original_score:
+                logger.warning(
+                    f"Score {original_score} was clamped to {score}. "
+                    f"Judge model returned out-of-range score."
+                )
 
             return {
                 "score": score,
