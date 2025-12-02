@@ -1,45 +1,101 @@
 # BenchRight
-LLM benchmark evaluation framework on Google Colab, this repository contains the full 18 week learning journey to master the below:
 
-1. LLM Evaluation
-2. Benchmarking
-3. Safety & Hallucination Detection
-4. LLM as Judge scoring
-5. Enterprise Use Cases
-6. ONNX runtime
-7. Google Colab Hands on Labs
-8. Performance Profiling
-9. Robustness, bias, adversarial tests
-10. End to end system design
+An 18-week LLM evaluation and benchmarking training programme based on tinyGPT ONNX and Google Colab.
 
-## Evaluation Feastures
+## Overview
+
+BenchRight provides a comprehensive curriculum for mastering LLM evaluation techniques. The programme covers:
+
+- LLM Evaluation fundamentals
+- Benchmarking methodologies
+- Safety & Hallucination Detection
+- LLM-as-Judge scoring
+- Enterprise Use Cases
+- ONNX runtime optimization
+- Google Colab hands-on labs
+- Performance Profiling
+- Robustness, bias, and adversarial testing
+- End-to-end system design
+
+## 18-Week Roadmap
+
+| Week | Topic |
+|------|-------|
+| 1 | [Foundations of LLM Evaluation & First Principles](week1.md) |
+| 2 | Tokenization & ONNX Runtime Internals |
+| 3 | Perplexity & Basic Benchmarks |
+| 4 | Industry Benchmark Suites (MMLU, HellaSwag, BBH) |
+| 5–10 | Automated Evaluation Pipelines (LLM-as-judge, safety, robustness, performance, regression tests) |
+| 11–16 | Industry Use Cases (banking, healthcare, software engineering, data analytics, RAG, marketing) |
+| 17–18 | Full System Architecture & Capstone |
+
+See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
+
+## How to Use
+
+1. Clone this repository
+2. Install dependencies: `pip install -r requirements.txt`
+3. Open the weekly notebooks in Google Colab
+4. Follow along with the hands-on labs and mini-projects
+5. Complete the knowledge mastery checklist for each week
+
+## Prerequisites
+
+- Python 3.8+
+- Google account (for Colab access)
+- Basic understanding of machine learning concepts
+- Familiarity with Python and Jupyter notebooks
+
+## Folder Structure
+
+```
+BenchRight/
+├── README.md              # This file
+├── requirements.txt       # Python dependencies
+├── week1.md               # Week 1 content
+├── docs/
+│   └── syllabus.md        # 18-week curriculum overview
+├── examples/              # Example outputs and results
+└── LICENSE                # Apache 2.0 License
+```
+
+## Evaluation Features
+
 ### Standard Benchmarks
-a. LAMBADA
-b. MMLU
-c. HellaSwag
-d. BBH
-e. TruthfulQA
-f. Toxicity Tests
-g. Adversarial robustness
+- LAMBADA
+- MMLU
+- HellaSwag
+- BBH
+- TruthfulQA
+- Toxicity Tests
+- Adversarial robustness
 
 ### Performance Benchmarks
-a. Latency
-b. Throughput
-c. Memory
-d. ONNX operator profiling
+- Latency
+- Throughput
+- Memory
+- ONNX operator profiling
 
 ### Quality Benchmarks
-a. Coherence
-b. Accuracy
-c. Factuality
-d. LLM-as-Judge (GPT-4/Claude-style scoring)
+- Coherence
+- Accuracy
+- Factuality
+- LLM-as-Judge (GPT-4/Claude-style scoring)
 
 ### Safety & Bias
-a. Truthfulness
-b. ToxiGen
-c. Red-Teaming prompts
+- Truthfulness
+- ToxiGen
+- Red-Teaming prompts
 
 ### Reports
-a. PDF
-b. Markdown model Cards
-c. Dashboard Plots
+- PDF
+- Markdown model cards
+- Dashboard plots
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute.
+
+## License
+
+This project is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
