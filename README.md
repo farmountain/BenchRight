@@ -31,6 +31,15 @@ BenchRight provides a comprehensive curriculum for mastering LLM evaluation tech
 
 See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
+### Week 1: Foundations of LLM Evaluation & First Principles
+
+- **Foundational Evaluation Concepts:** Learn the 4 pillars of LLM evaluation (Quantitative, Qualitative, Safety, Performance) and apply First Principles, Feynman Technique, and Paul-Elder Critical Thinking frameworks
+- **First ONNX Run:** Load and run your first tinyGPT ONNX model in Google Colab, understanding the inference pipeline from tokenization to output
+- **First Latency Benchmark:** Measure inference latency on multiple prompts and display results in a structured DataFrame
+
+📓 **Notebook:** [week1_intro_evaluation.ipynb](week1_intro_evaluation.ipynb)  
+📋 **Grading Rubric:** [docs/week1_rubric.md](docs/week1_rubric.md)
+
 ## How to Use
 
 1. Clone this repository
@@ -50,13 +59,15 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
 ```
 BenchRight/
-├── README.md              # This file
-├── requirements.txt       # Python dependencies
-├── week1.md               # Week 1 content
+├── README.md                      # This file
+├── requirements.txt               # Python dependencies
+├── week1.md                       # Week 1 content
+├── week1_intro_evaluation.ipynb   # Week 1 Google Colab notebook
 ├── docs/
-│   └── syllabus.md        # 18-week curriculum overview
-├── examples/              # Example outputs and results
-└── LICENSE                # Apache 2.0 License
+│   ├── syllabus.md                # 18-week curriculum overview
+│   └── week1_rubric.md            # Week 1 mini-project grading rubric
+├── examples/                      # Example outputs and results
+└── LICENSE                        # Apache 2.0 License
 ```
 
 ## Evaluation Features
