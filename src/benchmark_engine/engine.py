@@ -40,8 +40,9 @@ def run_benchmark(
         metric_fn: A callable that computes a score for a (model_output, reference) pair.
                    Signature: (str, str) -> float
                    Higher scores should indicate better performance.
-        batch_size: Number of examples to process before yielding results.
-                    Currently processes one at a time (batch_size=1 is recommended).
+        batch_size: Reserved for future batch processing support.
+                    Currently all examples are processed sequentially (batch_size=1).
+                    This parameter is validated but does not affect processing.
 
     Returns:
         A dictionary containing:
