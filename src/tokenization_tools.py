@@ -13,6 +13,17 @@ from transformers import AutoTokenizer
 DEFAULT_TOKENIZER = "gpt2"
 
 
+# Cache for loaded tokenizers to avoid repeated downloads
+_tokenizer_cache: dict = {}
+
+
+def _get_tokenizer(tokenizer_name: str):
+    """Get a cached tokenizer instance."""
+    if tokenizer_name not in _tokenizer_cache:
+        _tokenizer_cache[tokenizer_name] = AutoTokenizer.from_pretrained(tokenizer_name)
+    return _tokenizer_cache[tokenizer_name]
+
+
 def count_tokens(prompt: str, tokenizer_name: str = DEFAULT_TOKENIZER) -> int:
     """
     Count the number of tokens in a prompt.
@@ -31,7 +42,7 @@ def count_tokens(prompt: str, tokenizer_name: str = DEFAULT_TOKENIZER) -> int:
         >>> count_tokens("GPT-4 is a transformer model.")
         8
     """
-    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+    tokenizer = _get_tokenizer(tokenizer_name)
     encoding = tokenizer(prompt, return_tensors="np")
     return int(encoding["input_ids"].shape[1])
 
@@ -60,7 +71,7 @@ def analyze_prompts(
         0    Hello world         2
         1  AI is amazing         4
     """
-    tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
+    tokenizer = _get_tokenizer(tokenizer_name)
 
     results = []
     for prompt in prompts:
