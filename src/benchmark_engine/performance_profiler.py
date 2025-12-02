@@ -16,6 +16,15 @@ import numpy as np
 import pandas as pd
 
 
+# Mock profiler constants for realistic synthetic metrics
+BASE_LATENCY_MS = 10.0  # Base latency in milliseconds
+LATENCY_PER_TOKEN_MS = 0.5  # Additional latency per token
+LATENCY_NOISE_STD = 2.0  # Standard deviation of latency noise
+BASE_MEMORY_MB = 50.0  # Base memory usage in megabytes
+MEMORY_PER_TOKEN_MB = 0.1  # Additional memory per token
+MEMORY_NOISE_STD = 5.0  # Standard deviation of memory noise
+
+
 def profile_model(
     model_path: str,
     prompts: List[str],
@@ -160,17 +169,24 @@ def _mock_profile_model(
         # Estimate tokens (rough: ~4 chars per token)
         input_tokens = max(1, len(prompt) // 4)
 
-        # Generate realistic mock metrics
+        # Generate realistic mock metrics using named constants
         # Latency scales with input length
-        base_latency = 10.0  # Base latency in ms
-        latency_ms = base_latency + (input_tokens * 0.5) + np.random.normal(0, 2)
+        latency_ms = (
+            BASE_LATENCY_MS
+            + (input_tokens * LATENCY_PER_TOKEN_MS)
+            + np.random.normal(0, LATENCY_NOISE_STD)
+        )
         latency_ms = max(1.0, latency_ms)  # Ensure positive
 
         # Tokens per second (typical range: 50-500)
         tokens_per_second = input_tokens / (latency_ms / 1000)
 
-        # Memory (rough estimate)
-        memory_mb = 50 + (input_tokens * 0.1) + np.random.normal(0, 5)
+        # Memory (rough estimate) using named constants
+        memory_mb = (
+            BASE_MEMORY_MB
+            + (input_tokens * MEMORY_PER_TOKEN_MB)
+            + np.random.normal(0, MEMORY_NOISE_STD)
+        )
         memory_mb = max(10.0, memory_mb)
 
         results.append({

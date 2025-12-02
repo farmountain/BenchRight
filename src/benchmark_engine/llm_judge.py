@@ -26,9 +26,19 @@ import json
 import re
 
 
-# System prompt designed for general-purpose evaluation
-# Reusable across Weeks 6, 11-16 evaluation scenarios
-EVALUATION_SYSTEM_PROMPT = """You are an expert evaluator for language model outputs. Your task is to evaluate the quality of an answer given a question and an optional reference answer.
+# Default scoring weights for the overall score calculation
+DEFAULT_CORRECTNESS_WEIGHT = 0.5
+DEFAULT_COHERENCE_WEIGHT = 0.25
+DEFAULT_HELPFULNESS_WEIGHT = 0.25
+
+
+def _build_evaluation_prompt(
+    correctness_weight: float = DEFAULT_CORRECTNESS_WEIGHT,
+    coherence_weight: float = DEFAULT_COHERENCE_WEIGHT,
+    helpfulness_weight: float = DEFAULT_HELPFULNESS_WEIGHT
+) -> str:
+    """Build the evaluation system prompt with configurable weights."""
+    return f"""You are an expert evaluator for language model outputs. Your task is to evaluate the quality of an answer given a question and an optional reference answer.
 
 Evaluate the answer on three criteria:
 1. **Correctness** (0-10): How factually accurate and correct is the answer? Does it match the reference if provided?
@@ -41,18 +51,23 @@ For each criterion, provide a score from 0 to 10 where:
 - 7-9: Good (mostly correct/coherent/helpful with minor issues)
 - 10: Excellent (fully correct/coherent/helpful)
 
-Compute an overall score as the weighted average: (Correctness * 0.5) + (Coherence * 0.25) + (Helpfulness * 0.25)
+Compute an overall score as the weighted average: (Correctness * {correctness_weight}) + (Coherence * {coherence_weight}) + (Helpfulness * {helpfulness_weight})
 
 Respond ONLY with a valid JSON object in this exact format:
-{
+{{
     "correctness": <score>,
     "coherence": <score>,
     "helpfulness": <score>,
     "score": <overall_score>,
     "rationale": "<brief explanation of the scores>"
-}
+}}
 
 Do not include any text before or after the JSON object."""
+
+
+# Default system prompt with standard weights
+# Reusable across Weeks 6, 11-16 evaluation scenarios
+EVALUATION_SYSTEM_PROMPT = _build_evaluation_prompt()
 
 
 class LLMJudge:

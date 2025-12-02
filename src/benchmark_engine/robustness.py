@@ -19,6 +19,14 @@ import random
 import string
 
 
+# Configuration constants for perturbation parameters
+TYPO_PROBABILITY = 0.1  # Probability of introducing a typo per character
+SYNONYM_REPLACEMENT_PROB = 0.3  # Probability of replacing a word with a synonym
+WORD_SWAP_PROBABILITY = 0.2  # Probability of swapping adjacent words
+CASE_CHANGE_PROBABILITY = 0.2  # Probability of changing case per character
+SIMILARITY_THRESHOLD = 0.5  # Jaccard similarity threshold for semantic similarity
+
+
 def perturb_prompt(prompt: str, mode: str = "typo", seed: Optional[int] = None) -> str:
     """
     Generate a perturbed variant of a prompt.
@@ -235,23 +243,20 @@ def _apply_synonyms(text: str) -> str:
     Returns:
         Text with some words replaced by synonyms.
     """
-    # Simple synonym map (placeholder)
+    # Simple synonym map (placeholder) - only actual synonyms, no self-references
     synonyms = {
-        'what': ['which', 'what'],
-        'is': ['is', "is"],
-        'the': ['the', 'a'],
-        'are': ['are', "are"],
-        'how': ['in what way', 'how'],
-        'why': ['for what reason', 'why'],
+        'what': ['which'],
+        'how': ['in what way'],
+        'why': ['for what reason'],
         'big': ['large', 'huge', 'massive'],
         'small': ['tiny', 'little', 'miniature'],
         'good': ['excellent', 'great', 'fine'],
         'bad': ['poor', 'terrible', 'awful'],
         'fast': ['quick', 'rapid', 'swift'],
         'slow': ['sluggish', 'unhurried', 'leisurely'],
-        'capital': ['capital', 'main city'],
-        'country': ['nation', 'state', 'country'],
-        'city': ['town', 'metropolis', 'city'],
+        'capital': ['main city'],
+        'country': ['nation', 'state'],
+        'city': ['town', 'metropolis'],
     }
 
     words = text.split()
@@ -259,7 +264,7 @@ def _apply_synonyms(text: str) -> str:
 
     for word in words:
         word_lower = word.lower().strip('.,?!')
-        if word_lower in synonyms and random.random() < 0.3:
+        if word_lower in synonyms and random.random() < SYNONYM_REPLACEMENT_PROB:
             replacement = random.choice(synonyms[word_lower])
             # Preserve original casing for first letter
             if word[0].isupper():
@@ -297,7 +302,7 @@ def _reorder_words(text: str) -> str:
 
     # Randomly swap adjacent pairs
     for i in range(len(middle) - 1):
-        if random.random() < 0.2:
+        if random.random() < WORD_SWAP_PROBABILITY:
             middle[i], middle[i + 1] = middle[i + 1], middle[i]
 
     return ' '.join([words[0]] + middle + [words[-1]])
@@ -315,7 +320,7 @@ def _change_case(text: str) -> str:
     """
     result = []
     for char in text:
-        if char.isalpha() and random.random() < 0.2:
+        if char.isalpha() and random.random() < CASE_CHANGE_PROBABILITY:
             result.append(char.swapcase())
         else:
             result.append(char)
@@ -411,8 +416,8 @@ def _is_semantically_similar(output1: str, output2: str) -> bool:
 
     jaccard = intersection / union if union > 0 else 0.0
 
-    # Consider similar if Jaccard > 0.5
-    return jaccard > 0.5
+    # Consider similar if Jaccard exceeds threshold
+    return jaccard > SIMILARITY_THRESHOLD
 
 
 if __name__ == "__main__":
