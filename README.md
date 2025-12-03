@@ -34,7 +34,8 @@ BenchRight provides a comprehensive curriculum for mastering LLM evaluation tech
 | 11 | [Banking & Compliance Evaluation](week11.md) |
 | 12 | [Healthcare & Safety Evaluation](week12.md) |
 | 13 | [Software Engineering Evaluation](week13.md) |
-| 14–16 | Industry Use Cases (data analytics, RAG, marketing) |
+| 14 | [Data Analytics & SQL Evaluation](week14.md) |
+| 15–16 | Industry Use Cases (RAG, marketing) |
 | 17–18 | Full System Architecture & Capstone |
 
 See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
@@ -162,6 +163,16 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
 📓 **Notebook:** [week13_software_engineering.ipynb](week13_software_engineering.ipynb)  
 📄 **Content:** [week13.md](week13.md)
+
+### Week 14: Data Analytics & SQL Evaluation
+
+- **SQL Generation Evaluation:** Learn how to evaluate LLM capabilities for text-to-SQL tasks
+- **In-Memory SQLite Testing:** Use an in-memory SQLite database to verify query correctness
+- **Two-Metric Evaluation:** Implement evaluation based on query execution success and result correctness
+- **Query Complexity Analysis:** Analyze which types of queries are hardest for models to generate
+
+📓 **Notebook:** [week14_data_analytics_sql.ipynb](week14_data_analytics_sql.ipynb)  
+📄 **Content:** [week14.md](week14.md)
 
 ## How to Use
 
