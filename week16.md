@@ -392,7 +392,7 @@ Please evaluate this content according to the rubric."""
             
             return result
             
-        except json.JSONDecodeError as e:
+        except (json.JSONDecodeError, ValueError, TypeError) as e:
             return {
                 "brand_voice_score": 0,
                 "brand_voice_rationale": f"Parse error: {e}",
