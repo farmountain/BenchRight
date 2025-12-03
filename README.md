@@ -36,7 +36,7 @@ BenchRight provides a comprehensive curriculum for mastering LLM evaluation tech
 | 13 | [Software Engineering Evaluation](week13.md) |
 | 14 | [Data Analytics & SQL Evaluation](week14.md) |
 | 15 | [RAG & Customer Service Evaluation](week15.md) |
-| 16 | Marketing & Content Use Cases |
+| 16 | [Creative & Marketing Content Evaluation](week16.md) |
 | 17–18 | Full System Architecture & Capstone |
 
 See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
@@ -184,6 +184,16 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
 📓 **Notebook:** [week15_rag_customer_service.ipynb](week15_rag_customer_service.ipynb)  
 📄 **Content:** [week15.md](week15.md)
+
+### Week 16: Creative & Marketing Content Evaluation
+
+- **Multi-Dimensional Evaluation:** Learn how to evaluate creative writing and marketing copy across multiple quality dimensions
+- **Evaluation Criteria:** Define and apply criteria for brand voice alignment, clarity, and call-to-action strength
+- **Rubric Design:** Design a simple 1-5 rubric for each evaluation dimension
+- **LLM-as-Judge Pattern:** Use the LLM judge pattern to assign scores across multiple criteria at scale
+
+📓 **Notebook:** [week16_creative_marketing.ipynb](week16_creative_marketing.ipynb)  
+📄 **Content:** [week16.md](week16.md)
 
 ## How to Use
 
