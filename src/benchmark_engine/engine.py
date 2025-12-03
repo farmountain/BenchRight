@@ -55,7 +55,6 @@ def run_benchmark(
 
     Raises:
         ValueError: If batch_size is less than 1
-        StopIteration: If dataset is empty
 
     Example:
         >>> def simple_model(prompt):
@@ -79,7 +78,6 @@ def run_benchmark(
     detailed_results: List[Dict[str, Any]] = []
     start_time = time.time()
 
-    example_count = 0
     for input_text, reference in dataset:
         # Run model inference
         inference_start = time.time()
@@ -99,27 +97,19 @@ def run_benchmark(
             'inference_time_seconds': inference_time
         })
 
-        example_count += 1
-
     total_time = time.time() - start_time
+    num_examples = len(scores)
 
-    # Handle empty dataset case
-    if example_count == 0:
-        return {
-            'scores': [],
-            'mean_score': 0.0,
-            'total_examples': 0,
-            'total_time_seconds': total_time,
-            'examples_per_second': 0.0,
-            'results': []
-        }
+    # Compute aggregate metrics
+    mean_score = sum(scores) / num_examples if num_examples > 0 else 0.0
+    throughput = num_examples / total_time if total_time > 0 else 0.0
 
     return {
         'scores': scores,
-        'mean_score': sum(scores) / len(scores),
-        'total_examples': example_count,
+        'mean_score': mean_score,
+        'total_examples': num_examples,
         'total_time_seconds': total_time,
-        'examples_per_second': example_count / total_time if total_time > 0 else 0.0,
+        'examples_per_second': throughput,
         'results': detailed_results
     }
 
