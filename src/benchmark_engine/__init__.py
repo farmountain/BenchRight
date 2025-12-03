@@ -2,13 +2,14 @@
 Benchmark engine module for BenchRight LLM evaluation.
 
 This module provides a generic evaluation loop for running benchmarks
-on language models, including LLM-as-Judge evaluation capabilities
-and safety/hallucination testing.
+on language models, including LLM-as-Judge evaluation capabilities,
+safety/hallucination testing, and robustness evaluation.
 """
 
 from .engine import run_benchmark, exact_match_metric, contains_metric
 from .llm_judge import LLMJudge, JUDGE_SYSTEM_PROMPT
 from .safety_tests import run_truthfulqa_eval, run_toxigen_eval
+from .robustness import perturb_prompt, robustness_sweep
 
 __all__ = [
     "run_benchmark",
@@ -18,4 +19,6 @@ __all__ = [
     "JUDGE_SYSTEM_PROMPT",
     "run_truthfulqa_eval",
     "run_toxigen_eval",
+    "perturb_prompt",
+    "robustness_sweep",
 ]

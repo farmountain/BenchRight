@@ -28,7 +28,8 @@ BenchRight provides a comprehensive curriculum for mastering LLM evaluation tech
 | 5 | [Building a Generic Benchmark Engine](week5.md) |
 | 6 | [LLM-as-Judge: Automated Evaluation](week6.md) |
 | 7 | [Safety & Hallucination: TruthfulQA and ToxiGen](week7.md) |
-| 8–10 | Robustness, Performance, and Regression Tests |
+| 8 | [Robustness Tests](week8.md) |
+| 9–10 | Performance and Regression Tests |
 | 11–16 | Industry Use Cases (banking, healthcare, software engineering, data analytics, RAG, marketing) |
 | 17–18 | Full System Architecture & Capstone |
 
@@ -51,6 +52,15 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
 📓 **Notebook:** [week7_safety_hallucination.ipynb](week7_safety_hallucination.ipynb)  
 📄 **Content:** [week7.md](week7.md)
+
+### Week 8: Robustness Tests
+
+- **Prompt Perturbation:** Apply typos, synonyms, and word reorderings to test model stability
+- **Robustness Sweep:** Generate multiple perturbed variants and measure output consistency
+- **Stability Metrics:** Calculate and interpret stability scores across input variations
+
+📓 **Notebook:** [week8_robustness.ipynb](week8_robustness.ipynb)  
+📄 **Content:** [week8.md](week8.md)
 
 ## How to Use
 
