@@ -45,6 +45,51 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 📓 **Notebook:** [week1_intro_evaluation.ipynb](week1_intro_evaluation.ipynb)  
 📋 **Grading Rubric:** [docs/week1_rubric.md](docs/week1_rubric.md)
 
+### Week 2: Tokenization & ONNX Runtime Internals
+
+- **Tokenization Fundamentals:** Understand what tokens are and how BPE, WordPiece, and SentencePiece algorithms break text into model-consumable pieces
+- **Token vs. Character Analysis:** Learn why token count matters more than character count for latency and cost predictions
+- **ONNX Runtime Profiling:** Enable profiling to inspect operator-level timing breakdowns and identify performance bottlenecks
+
+📓 **Notebook:** [week2_tokenization_internals.ipynb](week2_tokenization_internals.ipynb)  
+📄 **Content:** [week2.md](week2.md)
+
+### Week 3: Perplexity & Basic Benchmarks
+
+- **Perplexity Explained:** Understand perplexity as exponentiated average negative log-likelihood and what it measures about language models
+- **Limitations of Perplexity:** Recognize when good perplexity scores can still lead to production failures
+- **Pseudo-Perplexity Computation:** Compute approximate perplexity using ONNX models and analyze results across text domains
+
+📓 **Notebook:** [week3_perplexity.ipynb](week3_perplexity.ipynb)  
+📄 **Content:** [week3.md](week3.md)
+
+### Week 4: Industry Benchmark Suites (MMLU, HellaSwag, BBH)
+
+- **MMLU Evaluation:** Measure world knowledge and problem-solving ability across 57 subjects
+- **HellaSwag Testing:** Test commonsense reasoning through adversarially-generated story completions
+- **TruthfulQA & ToxiGen:** Evaluate truthfulness and toxicity detection capabilities
+
+📓 **Notebook:** [week4_industry_benchmarks.ipynb](week4_industry_benchmarks.ipynb)  
+📄 **Content:** [week4.md](week4.md)
+
+### Week 5: Building a Generic Benchmark Engine
+
+- **Generic Evaluation Loop:** Create reusable benchmark infrastructure that works with any model, dataset, and metric
+- **Function Interface Pattern:** Use callable interfaces for models and metrics to enable flexible evaluation pipelines
+- **Built-in Metrics:** Implement exact match, contains match, and custom metric functions for scoring
+
+📓 **Notebook:** [week5_generic_benchmark_engine.ipynb](week5_generic_benchmark_engine.ipynb)  
+📄 **Content:** [week5.md](week5.md)
+
+### Week 6: LLM-as-Judge: Automated Evaluation
+
+- **LLM-as-Judge Concept:** Use powerful language models to evaluate outputs from other models at scale
+- **Evaluation Prompt Design:** Create effective system prompts that assess correctness, coherence, and helpfulness
+- **Trade-offs Analysis:** Understand when to use automated evaluation vs. human evaluation
+
+📓 **Notebook:** [week6_llm_as_judge.ipynb](week6_llm_as_judge.ipynb)  
+📄 **Content:** [week6.md](week6.md)
+
 ### Week 7: Safety & Hallucination Evaluation
 
 - **TruthfulQA Evaluation:** Test model truthfulness by detecting responses that propagate common misconceptions
