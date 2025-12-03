@@ -38,7 +38,7 @@ BenchRight provides a comprehensive curriculum for mastering LLM evaluation tech
 | 15 | [RAG & Customer Service Evaluation](week15.md) |
 | 16 | [Creative & Marketing Content Evaluation](week16.md) |
 | 17 | [System Architecture](week17.md) |
-| 18 | Capstone Project |
+| 18 | [Capstone & Report Generation](week18.md) |
 
 See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
@@ -207,6 +207,19 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 📓 **Notebook:** [week17_system_architecture.ipynb](week17_system_architecture.ipynb)  
 📄 **Content:** [week17.md](week17.md)  
 🛠️ **CLI Tool:** [scripts/run_all_evals.py](scripts/run_all_evals.py)
+
+### Week 18: Capstone & Report Generation
+
+- **Capstone Project:** Apply everything learned by selecting an application domain and running end-to-end evaluation
+- **Domain Selection:** Choose from Healthcare, Finance, Customer Service, Creative, or custom domains
+- **Benchmark Configuration:** Configure appropriate benchmarks and safety tests for your domain
+- **Report Generation:** Use the PDF report generator to create professional evaluation reports
+- **Comprehensive Evaluation:** Run BenchRight end-to-end on tinyGPT (or another model) and document findings
+
+📓 **Notebook:** [week18_capstone.ipynb](week18_capstone.ipynb)  
+📄 **Content:** [week18.md](week18.md)  
+🛠️ **Report Generator:** [scripts/generate_pdf_report.py](scripts/generate_pdf_report.py)  
+📋 **Report Template:** [src/templates/eval_report_template.md](src/templates/eval_report_template.md)
 
 ## How to Use
 
