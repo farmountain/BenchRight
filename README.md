@@ -35,7 +35,8 @@ BenchRight provides a comprehensive curriculum for mastering LLM evaluation tech
 | 12 | [Healthcare & Safety Evaluation](week12.md) |
 | 13 | [Software Engineering Evaluation](week13.md) |
 | 14 | [Data Analytics & SQL Evaluation](week14.md) |
-| 15–16 | Industry Use Cases (RAG, marketing) |
+| 15 | [RAG & Customer Service Evaluation](week15.md) |
+| 16 | Marketing & Content Use Cases |
 | 17–18 | Full System Architecture & Capstone |
 
 See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
@@ -173,6 +174,16 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
 📓 **Notebook:** [week14_data_analytics_sql.ipynb](week14_data_analytics_sql.ipynb)  
 📄 **Content:** [week14.md](week14.md)
+
+### Week 15: RAG & Customer Service Evaluation
+
+- **Retrieval-Augmented Generation:** Learn how RAG combines information retrieval with LLM generation for grounded answers
+- **FAQ Corpus & Vector Store:** Create a tiny FAQ corpus and index it with a simple vector store (FAISS-compatible)
+- **Groundedness Evaluation:** Evaluate answer groundedness using both string matching and LLM-as-Judge approaches
+- **Retrieval Quality Metrics:** Measure precision, recall, and hit rate for document retrieval
+
+📓 **Notebook:** [week15_rag_customer_service.ipynb](week15_rag_customer_service.ipynb)  
+📄 **Content:** [week15.md](week15.md)
 
 ## How to Use
 
