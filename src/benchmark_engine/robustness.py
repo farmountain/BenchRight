@@ -31,6 +31,15 @@ logger = logging.getLogger(__name__)
 
 
 # ==============================================================================
+# Constants
+# ==============================================================================
+
+# Threshold for Jaccard similarity to consider outputs semantically similar
+# This is a placeholder threshold - should be tuned or replaced with embedding-based similarity
+SEMANTIC_SIMILARITY_THRESHOLD = 0.7
+
+
+# ==============================================================================
 # Prompt Perturbation Functions
 # ==============================================================================
 
@@ -66,7 +75,7 @@ TYPO_MAPPINGS: Dict[str, List[str]] = {
 }
 
 # Simple synonym mappings for common words
-# This is a placeholder - production systems would use a proper thesaurus or embedding-based approach
+# TODO: Use a proper thesaurus or embedding-based approach in production systems
 SYNONYM_MAPPINGS: Dict[str, List[str]] = {
     "what": ["which", "how"],
     "is": ["are", "was"],
@@ -353,8 +362,7 @@ def robustness_sweep(
         perturbed_outputs.append(output)
         
         # Check semantic similarity
-        # TODO: Replace with actual semantic similarity check
-        # For now, use exact match (case-insensitive, whitespace-normalized) as placeholder
+        # TODO: Replace word overlap heuristic with embedding-based semantic similarity
         is_similar = _check_semantic_similarity(original_output, output)
         
         if is_similar:
@@ -450,9 +458,8 @@ def _check_semantic_similarity(output1: str, output2: str) -> bool:
     union = len(words1 | words2)
     jaccard = intersection / union if union > 0 else 0.0
     
-    # Consider similar if Jaccard similarity >= 0.7
-    # This is a placeholder threshold - should be tuned or replaced
-    return jaccard >= 0.7
+    # Consider similar if Jaccard similarity meets threshold
+    return jaccard >= SEMANTIC_SIMILARITY_THRESHOLD
 
 
 if __name__ == "__main__":
