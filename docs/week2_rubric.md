@@ -2,7 +2,7 @@
 
 ## Overview
 
-This rubric is used to evaluate the Week 2 mini-project: **Computing Perplexity on Custom Text**.
+This rubric is used to evaluate the Week 2 mini-project: **Tokenization Analysis - Same Length, Different Tokens**.
 
 ---
 
@@ -23,16 +23,16 @@ Each criterion is scored on a scale of **0–3**:
 
 | Score | Criteria |
 |-------|----------|
-| 3 | Code runs without errors, correctly implements perplexity calculation using log-probabilities, handles at least 3 sentences, and produces valid perplexity values |
-| 2 | Code runs with minor issues but demonstrates understanding of perplexity computation |
+| 3 | Code runs without errors, correctly tokenizes both prompts, measures token counts accurately, and runs inference with latency measurement |
+| 2 | Code runs with minor issues but demonstrates understanding of tokenization and latency measurement |
 | 1 | Code has significant errors or only partially implements the required functionality |
 | 0 | Code does not run or is missing essential components |
 
 **Key checkpoints:**
-- [ ] Log-probabilities are correctly extracted from model outputs
-- [ ] Perplexity formula is correctly implemented: exp(-1/N × Σ log P(token_i))
-- [ ] At least 3 different sentences are evaluated
-- [ ] Results are numerically reasonable (perplexity values > 1)
+- [ ] Two prompts with same character count but different token counts are created
+- [ ] Tokenizer correctly counts tokens for each prompt
+- [ ] Inference runs successfully on both prompts
+- [ ] Latency is measured accurately for comparison
 
 ---
 
@@ -40,18 +40,17 @@ Each criterion is scored on a scale of **0–3**:
 
 | Score | Criteria |
 |-------|----------|
-| 3 | Results table is complete with all sentences, perplexity values are clearly presented, and includes summary statistics (mean, min, max) |
-| 2 | Results table has all sentences but may have minor formatting issues |
-| 1 | Results table is incomplete or perplexity values appear incorrect |
+| 3 | Results table shows character count, token count, and latency for both prompts; includes clear comparison of the differences |
+| 2 | Results table has both prompts but may have minor formatting issues |
+| 1 | Results table is incomplete or missing key measurements |
 | 0 | No results table provided or results are unusable |
 
 **Expected results format:**
 
-| Sentence | Token Count | Perplexity |
-|----------|-------------|------------|
-| [Sentence 1] | N | XX.XX |
-| [Sentence 2] | N | XX.XX |
-| [Sentence 3] | N | XX.XX |
+| Prompt | Characters | Tokens | Latency (ms) |
+|--------|------------|--------|--------------|
+| Prompt A (common words) | ~100 | N | XX.XX |
+| Prompt B (rare words) | ~100 | M | XX.XX |
 
 ---
 
@@ -59,16 +58,16 @@ Each criterion is scored on a scale of **0–3**:
 
 | Score | Criteria |
 |-------|----------|
-| 3 | Provides thoughtful analysis of perplexity differences between sentences, discusses factors affecting perplexity, and draws reasonable conclusions about model behavior |
+| 3 | Provides thoughtful analysis of token count differences, explains why different prompts tokenize differently, and discusses the relationship between token count and latency |
 | 2 | Provides basic analysis with some insights but lacks depth |
 | 1 | Minimal interpretation with little to no analysis |
 | 0 | No interpretation provided |
 
 **Strong interpretations typically include:**
-- Observations about which sentences have lower/higher perplexity
-- Discussion of factors affecting perplexity (common vs. rare words, sentence structure)
-- Understanding of what perplexity tells us about model confidence
-- Comparison with expected behavior based on sentence complexity
+- Explanation of why common words tokenize into fewer tokens
+- Discussion of BPE/tokenization algorithm behavior
+- Analysis of token count's impact on inference latency
+- Understanding of implications for cost and performance
 
 ---
 
@@ -76,17 +75,17 @@ Each criterion is scored on a scale of **0–3**:
 
 | Score | Criteria |
 |-------|----------|
-| 3 | Well-organized markdown file, clear headings, proper table formatting, includes explanation of methodology |
+| 3 | Well-organized markdown file, clear headings, proper table formatting, includes explanation of prompt design choices |
 | 2 | Readable documentation with minor formatting issues |
 | 1 | Poorly organized or difficult to read |
 | 0 | No documentation or unreadable format |
 
 **Documentation should include:**
 - [ ] Clear title and date
-- [ ] Methodology explanation
+- [ ] Both prompts displayed clearly
 - [ ] Properly formatted results table
 - [ ] Interpretation section
-- [ ] Summary statistics
+- [ ] Explanation of prompt design rationale
 
 ---
 
@@ -105,47 +104,64 @@ Each criterion is scored on a scale of **0–3**:
 ## Example of an Excellent Submission
 
 ```markdown
-# Week 2 Mini-Project Results
+# Week 2 Mini-Project: Tokenization Analysis
 
 **Author:** [Your Name]  
 **Date:** [Date]  
 **Environment:** Google Colab, Python 3.10, ONNX Runtime 1.16.0
 
-## Methodology
+## Prompts
 
-Perplexity was calculated using the formula:
-PPL = exp(-1/N × Σ log P(token_i))
+### Prompt A (Common English Words) - 100 characters
+"The quick brown fox jumps over the lazy dog. This is a simple sentence with common everyday words."
 
-where N is the number of tokens and P(token_i) is the probability assigned to each token.
+### Prompt B (Technical/Rare Words) - 100 characters  
+"Quantum chromodynamics describes gluon-mediated interactions between quarks in hadrons via SU(3)."
 
-## Results Table
+## Results
 
-| Sentence | Token Count | Perplexity |
-|----------|-------------|------------|
-| The cat sat on the mat. | 7 | 12.45 |
-| Quantum entanglement demonstrates non-locality. | 6 | 89.23 |
-| I went to the store to buy groceries. | 9 | 15.67 |
+| Prompt | Characters | Tokens | Latency (ms) |
+|--------|------------|--------|--------------|
+| Prompt A (common) | 100 | 22 | 38.4 |
+| Prompt B (technical) | 100 | 41 | 52.7 |
 
-## Summary Statistics
+## Analysis
 
-- **Mean Perplexity:** 39.12
-- **Min Perplexity:** 12.45
-- **Max Perplexity:** 89.23
+### Token Count Comparison
 
-## Interpretation
+- **Prompt A:** 22 tokens (0.22 tokens per character)
+- **Prompt B:** 41 tokens (0.41 tokens per character)
+- **Difference:** Prompt B requires 86% more tokens
 
-The perplexity values reveal interesting patterns about model confidence:
+### Why the Difference?
 
-1. **Common phrases have lower perplexity:** "The cat sat on the mat" (12.45) shows the model is confident with common English patterns.
+1. **Common words are in vocabulary:** Words like "the," "quick," and "brown" are single tokens because they appear frequently in training data.
 
-2. **Technical content increases perplexity:** The quantum physics sentence (89.23) has significantly higher perplexity, indicating the model is less certain about specialized vocabulary.
+2. **Rare words are split:** Technical terms like "chromodynamics" and "gluon-mediated" are split into subword pieces:
+   - "chromodynamics" → "chrom", "ody", "nam", "ics" (4 tokens)
+   - "gluon-mediated" → "gl", "u", "on", "-", "med", "iated" (6 tokens)
 
-3. **Everyday language is predictable:** The grocery store sentence (15.67) falls in the low range, suggesting conversational text is well-modeled.
+3. **BPE tokenization:** The tokenizer uses Byte Pair Encoding, which merges frequently occurring character sequences. Common patterns merge more aggressively.
 
-**Limitations:**
-- Small sample size (3 sentences)
-- Single model evaluation
-- Token-level analysis would provide deeper insights
+### Latency Impact
+
+- **Prompt A latency:** 38.4 ms
+- **Prompt B latency:** 52.7 ms
+- **Latency increase:** 37%
+
+The 86% increase in tokens resulted in a 37% increase in latency. This sublinear relationship suggests some fixed overhead, but token count is a strong predictor of inference time.
+
+### Implications
+
+1. **Cost prediction:** API costs often charge per token—technical content is more expensive
+2. **Latency budgets:** For real-time applications, prefer concise, common vocabulary
+3. **Context limits:** Same character count uses different amounts of context window
+
+## Limitations
+
+- Only tested 2 prompts; more samples would give statistical confidence
+- Single run per prompt; multiple runs would reduce variance
+- Did not test extreme cases (non-Latin scripts, code, etc.)
 ```
 
 ---
@@ -153,7 +169,7 @@ The perplexity values reveal interesting patterns about model confidence:
 ## Feedback Guidelines
 
 When providing feedback, focus on:
-1. Correctness of perplexity calculation implementation
-2. Quality and diversity of test sentences
-3. Depth of interpretation and understanding of perplexity
-4. Suggestions for exploring perplexity in future analyses
+1. Quality of prompt pair design (same characters, different tokens)
+2. Accuracy of token count and latency measurement
+3. Depth of understanding about tokenization algorithms
+4. Analysis of relationship between tokens and latency

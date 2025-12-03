@@ -2,7 +2,7 @@
 
 ## Overview
 
-This rubric is used to evaluate the Week 4 mini-project: **Evaluating tinyGPT on ARC, WinoGrande, and GSM8K**.
+This rubric is used to evaluate the Week 4 mini-project: **Design Your Own 10-Question Benchmark**.
 
 ---
 
@@ -23,16 +23,16 @@ Each criterion is scored on a scale of **0–3**:
 
 | Score | Criteria |
 |-------|----------|
-| 3 | Code runs without errors, correctly implements all three benchmark evaluations (ARC Easy/Challenge, WinoGrande, GSM8K), uses appropriate methodology for each |
-| 2 | Code runs with minor issues but demonstrates understanding of benchmark evaluation |
-| 1 | Code has significant errors or only implements one or two benchmarks |
+| 3 | Code runs without errors, correctly implements a custom benchmark with 10 questions, includes expected answers, and evaluates tinyGPT on all questions |
+| 2 | Code runs with minor issues but demonstrates understanding of benchmark design |
+| 1 | Code has significant errors or has fewer than 10 questions |
 | 0 | Code does not run or is missing essential components |
 
 **Key checkpoints:**
-- [ ] ARC Easy and ARC Challenge are evaluated separately
-- [ ] WinoGrande coreference resolution is correctly handled
-- [ ] GSM8K math problems use appropriate evaluation (chain-of-thought or direct answer)
-- [ ] Sample sizes are appropriate (n=100 minimum per benchmark)
+- [ ] Capability to test is clearly defined
+- [ ] 10 questions with expected answers are provided
+- [ ] Model is evaluated on all questions
+- [ ] Scoring method (exact match or appropriate metric) is implemented
 
 ---
 
@@ -40,19 +40,20 @@ Each criterion is scored on a scale of **0–3**:
 
 | Score | Criteria |
 |-------|----------|
-| 3 | Results table shows scores for all benchmarks with sample sizes, distinguishes ARC Easy from Challenge, notes GSM8K evaluation approach |
-| 2 | Results table has most benchmarks but may lack detail |
-| 1 | Results table is incomplete or missing benchmarks |
+| 3 | Results table shows all 10 questions with model outputs, expected answers, and pass/fail status; includes overall accuracy |
+| 2 | Results table has all questions but may lack detail |
+| 1 | Results table is incomplete or missing questions |
 | 0 | No results table provided or results are unusable |
 
 **Expected results format:**
 
-| Benchmark | Accuracy | Sample Size | Notes |
-|-----------|----------|-------------|-------|
-| ARC-Easy | XX.X% | N | Science questions |
-| ARC-Challenge | XX.X% | N | Harder science |
-| WinoGrande | XX.X% | N | Coreference |
-| GSM8K | XX.X% | N | Math problems |
+| # | Question | Expected | Model Output | Pass? |
+|---|----------|----------|--------------|-------|
+| 1 | [Question] | [Answer] | [Output] | ✅/❌ |
+| ... | ... | ... | ... | ... |
+| 10 | [Question] | [Answer] | [Output] | ✅/❌ |
+
+**Overall: X/10 (XX%)**
 
 ---
 
@@ -60,17 +61,16 @@ Each criterion is scored on a scale of **0–3**:
 
 | Score | Criteria |
 |-------|----------|
-| 3 | Provides thoughtful comparison across benchmarks, discusses difficulty levels, analyzes reasoning vs knowledge performance, compares to published baselines |
+| 3 | Provides thoughtful analysis of which questions the model got right/wrong, identifies patterns in failures, and discusses what the benchmark reveals about model capabilities |
 | 2 | Provides basic analysis with some insights but lacks depth |
 | 1 | Minimal interpretation with little to no analysis |
 | 0 | No interpretation provided |
 
 **Strong interpretations typically include:**
-- Comparison of ARC Easy vs Challenge performance
-- Discussion of reasoning capabilities shown by WinoGrande
-- Analysis of mathematical reasoning limitations on GSM8K
-- Comparison to larger model performance
-- Understanding of benchmark difficulty hierarchy
+- Analysis of which question types were easy vs difficult
+- Patterns in failures (e.g., math, reasoning, specific knowledge)
+- Comparison to expected performance
+- Suggestions for improving the benchmark
 
 ---
 
@@ -78,17 +78,17 @@ Each criterion is scored on a scale of **0–3**:
 
 | Score | Criteria |
 |-------|----------|
-| 3 | Well-organized markdown file, clear benchmark descriptions, proper formatting, methodology for each benchmark |
+| 3 | Well-organized markdown file, clear description of capability tested, proper formatting, includes benchmark design rationale |
 | 2 | Readable documentation with minor formatting issues |
 | 1 | Poorly organized or difficult to read |
 | 0 | No documentation or unreadable format |
 
 **Documentation should include:**
 - [ ] Clear title and date
-- [ ] Description of each benchmark and what it measures
-- [ ] Evaluation methodology per benchmark
-- [ ] Results tables with clear formatting
-- [ ] Interpretation and comparison to baselines
+- [ ] Description of capability being tested
+- [ ] Rationale for question selection
+- [ ] Results table
+- [ ] Interpretation section
 
 ---
 
@@ -107,59 +107,95 @@ Each criterion is scored on a scale of **0–3**:
 ## Example of an Excellent Submission
 
 ```markdown
-# Week 4 Mini-Project Results
+# Week 4 Mini-Project: Custom Benchmark
 
 **Author:** [Your Name]  
 **Date:** [Date]  
 **Model:** tinyGPT (ONNX)
 
-## Benchmark Descriptions
+## Capability Tested
 
-### ARC (AI2 Reasoning Challenge)
-- **Easy:** Grade-school science questions
-- **Challenge:** Harder science questions requiring multi-step reasoning
+**Basic Arithmetic:** Testing whether tinyGPT can perform simple addition, subtraction, multiplication, and division.
 
-### WinoGrande
-Tests commonsense reasoning through pronoun resolution tasks.
+## Benchmark Design Rationale
 
-### GSM8K
-Grade school math word problems requiring multi-step arithmetic reasoning.
+Arithmetic is a fundamental capability that reveals:
+- Whether the model memorized math facts
+- Ability to follow simple computational rules
+- Consistency across different number ranges
+
+I included a mix of:
+- Simple single-digit operations (easy)
+- Double-digit operations (medium)
+- Operations with zero and negative numbers (edge cases)
+
+## Benchmark Questions
+
+| # | Question | Expected Answer | Difficulty |
+|---|----------|-----------------|------------|
+| 1 | What is 2 + 3? | 5 | Easy |
+| 2 | What is 7 - 4? | 3 | Easy |
+| 3 | What is 6 × 3? | 18 | Easy |
+| 4 | What is 15 ÷ 3? | 5 | Easy |
+| 5 | What is 25 + 17? | 42 | Medium |
+| 6 | What is 50 - 23? | 27 | Medium |
+| 7 | What is 12 × 8? | 96 | Medium |
+| 8 | What is 100 ÷ 4? | 25 | Medium |
+| 9 | What is 0 + 5? | 5 | Edge |
+| 10 | What is 10 - 10? | 0 | Edge |
 
 ## Results
 
-### Overall Results
+| # | Question | Expected | Model Output | Pass? |
+|---|----------|----------|--------------|-------|
+| 1 | 2 + 3? | 5 | "5" | ✅ |
+| 2 | 7 - 4? | 3 | "3" | ✅ |
+| 3 | 6 × 3? | 18 | "18" | ✅ |
+| 4 | 15 ÷ 3? | 5 | "5" | ✅ |
+| 5 | 25 + 17? | 42 | "42" | ✅ |
+| 6 | 50 - 23? | 27 | "23" | ❌ |
+| 7 | 12 × 8? | 96 | "84" | ❌ |
+| 8 | 100 ÷ 4? | 25 | "25" | ✅ |
+| 9 | 0 + 5? | 5 | "5" | ✅ |
+| 10 | 10 - 10? | 0 | "0" | ✅ |
 
-| Benchmark | Accuracy | Sample Size | Random Baseline |
-|-----------|----------|-------------|-----------------|
-| ARC-Easy | 32.5% | 100 | 25% |
-| ARC-Challenge | 26.8% | 100 | 25% |
-| WinoGrande | 52.3% | 100 | 50% |
-| GSM8K | 2.1% | 100 | ~0% |
+**Overall: 8/10 (80%)**
 
 ## Interpretation
 
-**Key findings:**
+### Performance by Difficulty
 
-1. **Science reasoning near random:** ARC scores (26-32%) show limited scientific knowledge, slightly better on Easy vs Challenge as expected.
+| Difficulty | Correct | Total | Accuracy |
+|------------|---------|-------|----------|
+| Easy | 4 | 4 | 100% |
+| Medium | 2 | 4 | 50% |
+| Edge | 2 | 2 | 100% |
 
-2. **Coreference at chance level:** WinoGrande at 52.3% is barely above random (50%), indicating minimal commonsense pronoun resolution ability.
+### Key Findings
 
-3. **Math is extremely difficult:** GSM8K at 2.1% shows tinyGPT cannot reliably perform multi-step math reasoning—this is expected for small models.
+1. **Single-digit arithmetic is strong:** All easy questions passed, suggesting memorization of basic facts.
 
-**Difficulty hierarchy observed:**
-GSM8K (hardest) < ARC-Challenge < ARC-Easy < WinoGrande (easiest)
+2. **Medium difficulty reveals limits:** 50-23 and 12×8 failed, showing multi-digit computation is unreliable.
 
-**Comparison to larger models:**
-| Model | GSM8K | ARC-C | WinoGrande |
-|-------|-------|-------|------------|
-| tinyGPT | 2.1% | 26.8% | 52.3% |
-| GPT-3.5 | ~57% | ~85% | ~87% |
-| GPT-4 | ~92% | ~96% | ~94% |
+3. **Edge cases handled well:** Zero operations were correct, indicating some rule understanding.
 
-**Limitations:**
-- Small sample sizes (100 per benchmark)
-- No chain-of-thought prompting for GSM8K
-- Single evaluation run
+### Failure Analysis
+
+- **50 - 23 = "23":** Model may have repeated part of the input instead of computing
+- **12 × 8 = "84":** Close to correct (96) but wrong—possible partial computation
+
+### Benchmark Improvements
+
+1. Add more double-digit operations to test limits
+2. Include larger numbers to find breaking points
+3. Test multi-step arithmetic (e.g., "2 + 3 × 4")
+4. Add word problems to test reasoning
+
+### Comparison to Industry Benchmarks
+
+My 80% accuracy on simple arithmetic contrasts with:
+- GSM8K (multi-step math): ~2% for tinyGPT
+- This confirms the model handles simple operations but not complex reasoning
 ```
 
 ---
@@ -167,7 +203,7 @@ GSM8K (hardest) < ARC-Challenge < ARC-Easy < WinoGrande (easiest)
 ## Feedback Guidelines
 
 When providing feedback, focus on:
-1. Correct implementation of each benchmark's unique evaluation approach
-2. Understanding of difficulty progression across benchmarks
-3. Quality of comparison to published results
-4. Insights about small model limitations on reasoning tasks
+1. Quality and thoughtfulness of benchmark design
+2. Diversity of questions (easy, medium, edge cases)
+3. Clarity of results presentation
+4. Depth of interpretation and failure analysis
