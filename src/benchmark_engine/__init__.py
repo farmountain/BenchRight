@@ -3,7 +3,8 @@ Benchmark engine module for BenchRight LLM evaluation.
 
 This module provides a generic evaluation loop for running benchmarks
 on language models, including LLM-as-Judge evaluation capabilities,
-safety/hallucination testing, robustness evaluation, and performance profiling.
+safety/hallucination testing, robustness evaluation, performance profiling,
+and regression analysis for version comparison.
 """
 
 from .engine import run_benchmark, exact_match_metric, contains_metric
@@ -14,6 +15,11 @@ from .performance_profiler import (
     PerformanceProfiler,
     profile_model,
     create_mock_profiler,
+)
+from .reporting import (
+    compare_runs,
+    summarize_regressions,
+    generate_regression_report,
 )
 
 __all__ = [
@@ -29,4 +35,7 @@ __all__ = [
     "PerformanceProfiler",
     "profile_model",
     "create_mock_profiler",
+    "compare_runs",
+    "summarize_regressions",
+    "generate_regression_report",
 ]

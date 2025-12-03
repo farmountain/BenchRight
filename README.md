@@ -30,7 +30,7 @@ BenchRight provides a comprehensive curriculum for mastering LLM evaluation tech
 | 7 | [Safety & Hallucination: TruthfulQA and ToxiGen](week7.md) |
 | 8 | [Robustness Tests](week8.md) |
 | 9 | [Performance Profiling](week9.md) |
-| 10 | Regression Tests |
+| 10 | [Regression & Version Comparison](week10.md) |
 | 11–16 | Industry Use Cases (banking, healthcare, software engineering, data analytics, RAG, marketing) |
 | 17–18 | Full System Architecture & Capstone |
 
@@ -117,6 +117,16 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
 📓 **Notebook:** [week9_performance_profiling.ipynb](week9_performance_profiling.ipynb)  
 📄 **Content:** [week9.md](week9.md)
+
+### Week 10: Regression & Version Comparison
+
+- **Run Comparison:** Compare benchmark results across different model versions
+- **Regression Detection:** Identify cases where the new model performs worse than the baseline
+- **Severity Ranking:** Prioritize regressions by magnitude to focus on critical issues
+- **Comprehensive Reporting:** Generate reports with summary statistics for multiple metrics
+
+📓 **Notebook:** [week10_regression_comparison.ipynb](week10_regression_comparison.ipynb)  
+📄 **Content:** [week10.md](week10.md)
 
 ## How to Use
 
