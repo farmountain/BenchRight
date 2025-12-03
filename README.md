@@ -37,7 +37,8 @@ BenchRight provides a comprehensive curriculum for mastering LLM evaluation tech
 | 14 | [Data Analytics & SQL Evaluation](week14.md) |
 | 15 | [RAG & Customer Service Evaluation](week15.md) |
 | 16 | [Creative & Marketing Content Evaluation](week16.md) |
-| 17–18 | Full System Architecture & Capstone |
+| 17 | [System Architecture](week17.md) |
+| 18 | Capstone Project |
 
 See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
@@ -195,6 +196,18 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 📓 **Notebook:** [week16_creative_marketing.ipynb](week16_creative_marketing.ipynb)  
 📄 **Content:** [week16.md](week16.md)
 
+### Week 17: System Architecture
+
+- **End-to-End Architecture:** Learn the complete BenchRight evaluation system architecture with data ingestion, benchmark selection, model wrappers, evaluation engine, judges, and reporting
+- **Model Wrapper Abstraction:** Create unified interfaces for ONNX, API-based, and HuggingFace models
+- **Evaluation Pipeline:** Build and run complete evaluation pipelines with multiple benchmarks
+- **CLI Tool:** Use the `run_all_evals.py` script for automated evaluation from the command line
+- **Regression Analysis:** Compare model versions and detect performance regressions
+
+📓 **Notebook:** [week17_system_architecture.ipynb](week17_system_architecture.ipynb)  
+📄 **Content:** [week17.md](week17.md)  
+🛠️ **CLI Tool:** [scripts/run_all_evals.py](scripts/run_all_evals.py)
+
 ## How to Use
 
 1. Clone this repository
@@ -218,9 +231,15 @@ BenchRight/
 ├── requirements.txt               # Python dependencies
 ├── week1.md                       # Week 1 content
 ├── week1_intro_evaluation.ipynb   # Week 1 Google Colab notebook
+├── ...                            # Week 2-17 content and notebooks
 ├── docs/
 │   ├── syllabus.md                # 18-week curriculum overview
 │   └── week1_rubric.md            # Week 1 mini-project grading rubric
+├── scripts/
+│   └── run_all_evals.py           # CLI tool for running evaluations
+├── src/
+│   └── benchmark_engine/          # Core evaluation engine modules
+├── results/                       # Evaluation output files (CSV, Markdown)
 ├── examples/                      # Example outputs and results
 └── LICENSE                        # Apache 2.0 License
 ```
