@@ -31,7 +31,8 @@ BenchRight provides a comprehensive curriculum for mastering LLM evaluation tech
 | 8 | [Robustness Tests](week8.md) |
 | 9 | [Performance Profiling](week9.md) |
 | 10 | [Regression & Version Comparison](week10.md) |
-| 11–16 | Industry Use Cases (banking, healthcare, software engineering, data analytics, RAG, marketing) |
+| 11 | [Banking & Compliance Evaluation](week11.md) |
+| 12–16 | Industry Use Cases (healthcare, software engineering, data analytics, RAG, marketing) |
 | 17–18 | Full System Architecture & Capstone |
 
 See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
@@ -127,6 +128,16 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
 📓 **Notebook:** [week10_regression_comparison.ipynb](week10_regression_comparison.ipynb)  
 📄 **Content:** [week10.md](week10.md)
+
+### Week 11: Banking & Compliance Evaluation
+
+- **Compliance Summarization:** Learn how LLMs can draft short summaries of regulations and KYC rules for banking and financial services
+- **Correctness & Completeness Scoring:** Design evaluations that score model summaries on accuracy and whether critical details are included
+- **Omission Detection:** Use LLM-as-Judge to identify what critical details (amounts, deadlines, penalties) were omitted from summaries
+- **Critical Thinking:** Explore the risks of mis-summarizing regulations and when human review is essential
+
+📓 **Notebook:** [week11_banking_compliance.ipynb](week11_banking_compliance.ipynb)  
+📄 **Content:** [week11.md](week11.md)
 
 ## How to Use
 
