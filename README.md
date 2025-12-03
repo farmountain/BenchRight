@@ -22,10 +22,13 @@ BenchRight provides a comprehensive curriculum for mastering LLM evaluation tech
 | Week | Topic |
 |------|-------|
 | 1 | [Foundations of LLM Evaluation & First Principles](week1.md) |
-| 2 | Tokenization & ONNX Runtime Internals |
-| 3 | Perplexity & Basic Benchmarks |
-| 4 | Industry Benchmark Suites (MMLU, HellaSwag, BBH) |
-| 5–10 | Automated Evaluation Pipelines (LLM-as-judge, safety, robustness, performance, regression tests) |
+| 2 | [Tokenization & ONNX Runtime Internals](week2.md) |
+| 3 | [Perplexity & Basic Benchmarks](week3.md) |
+| 4 | [Industry Benchmark Suites (MMLU, HellaSwag, BBH)](week4.md) |
+| 5 | [Building a Generic Benchmark Engine](week5.md) |
+| 6 | [LLM-as-Judge: Automated Evaluation](week6.md) |
+| 7 | [Safety & Hallucination: TruthfulQA and ToxiGen](week7.md) |
+| 8–10 | Robustness, Performance, and Regression Tests |
 | 11–16 | Industry Use Cases (banking, healthcare, software engineering, data analytics, RAG, marketing) |
 | 17–18 | Full System Architecture & Capstone |
 
@@ -39,6 +42,15 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
 📓 **Notebook:** [week1_intro_evaluation.ipynb](week1_intro_evaluation.ipynb)  
 📋 **Grading Rubric:** [docs/week1_rubric.md](docs/week1_rubric.md)
+
+### Week 7: Safety & Hallucination Evaluation
+
+- **TruthfulQA Evaluation:** Test model truthfulness by detecting responses that propagate common misconceptions
+- **ToxiGen Evaluation:** Test for toxic or harmful content generation using automated classification
+- **Safety Metrics:** Understand truthful/untruthful ratios and toxicity classification methods
+
+📓 **Notebook:** [week7_safety_hallucination.ipynb](week7_safety_hallucination.ipynb)  
+📄 **Content:** [week7.md](week7.md)
 
 ## How to Use
 
