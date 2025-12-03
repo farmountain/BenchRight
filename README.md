@@ -32,7 +32,8 @@ BenchRight provides a comprehensive curriculum for mastering LLM evaluation tech
 | 9 | [Performance Profiling](week9.md) |
 | 10 | [Regression & Version Comparison](week10.md) |
 | 11 | [Banking & Compliance Evaluation](week11.md) |
-| 12–16 | Industry Use Cases (healthcare, software engineering, data analytics, RAG, marketing) |
+| 12 | [Healthcare & Safety Evaluation](week12.md) |
+| 13–16 | Industry Use Cases (software engineering, data analytics, RAG, marketing) |
 | 17–18 | Full System Architecture & Capstone |
 
 See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
@@ -138,6 +139,18 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
 📓 **Notebook:** [week11_banking_compliance.ipynb](week11_banking_compliance.ipynb)  
 📄 **Content:** [week11.md](week11.md)
+
+### Week 12: Healthcare & Safety Evaluation
+
+> ⚠️ **IMPORTANT:** This module is for **educational/synthetic purposes only**—not for real medical advice.
+
+- **Healthcare Safety Evaluation:** Learn how to evaluate LLM responses to health questions with a focus on safety
+- **Prescription Avoidance:** Design evaluations that check whether models avoid giving direct medication prescriptions
+- **Professional Referral:** Assess whether models appropriately recommend consulting healthcare professionals
+- **Safety Warnings:** Understand the unique risks of healthcare AI and the importance of appropriate caution
+
+📓 **Notebook:** [week12_healthcare_safety.ipynb](week12_healthcare_safety.ipynb)  
+📄 **Content:** [week12.md](week12.md)
 
 ## How to Use
 
