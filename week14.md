@@ -400,7 +400,7 @@ INSERT INTO customers VALUES (2, 'Bob', 'Los Angeles');
 INSERT INTO customers VALUES (3, 'Charlie', 'New York');
 INSERT INTO orders VALUES (1, 1, 100.00);
 INSERT INTO orders VALUES (2, 1, 150.00);
-INSERT INTO orders VALUES (3, 2, 200.00)
+INSERT INTO orders VALUES (3, 2, 200.00);
 """
 
 # Initialize evaluator
@@ -621,7 +621,7 @@ INSERT INTO order_items VALUES (4, 3, 5, 1, 399.99);
 INSERT INTO order_items VALUES (5, 4, 4, 1, 249.99);
 INSERT INTO order_items VALUES (6, 5, 2, 2, 149.99);
 INSERT INTO order_items VALUES (7, 5, 4, 1, 249.99);
-INSERT INTO order_items VALUES (8, 6, 2, 1, 149.99)
+INSERT INTO order_items VALUES (8, 6, 2, 1, 149.99);
 """
 
 print("📊 Database schema and sample data defined!")
