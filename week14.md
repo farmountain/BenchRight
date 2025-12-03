@@ -1011,7 +1011,8 @@ def score_query_complexity(sql: str) -> Dict[str, Any]:
         features.append("HAVING")
         score += 1
     
-    if "SUBQUERY" in sql_upper or sql.count("SELECT") > 1:
+    # Detect subqueries by counting SELECT statements
+    if sql.upper().count("SELECT") > 1:
         features.append("SUBQUERY")
         score += 3
     
