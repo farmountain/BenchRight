@@ -505,8 +505,8 @@ def convert_to_pdf(markdown_path: str, pdf_path: str) -> bool:
     for engine in pdf_engines:
         try:
             cmd = ["pandoc", markdown_path, "-o", pdf_path]
-            if engine in ["xelatex", "pdflatex"]:
-                cmd.extend(["--pdf-engine", engine])
+            # All engines need the --pdf-engine argument
+            cmd.extend(["--pdf-engine", engine])
 
             result = subprocess.run(
                 cmd,
