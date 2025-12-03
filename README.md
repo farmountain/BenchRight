@@ -33,7 +33,8 @@ BenchRight provides a comprehensive curriculum for mastering LLM evaluation tech
 | 10 | [Regression & Version Comparison](week10.md) |
 | 11 | [Banking & Compliance Evaluation](week11.md) |
 | 12 | [Healthcare & Safety Evaluation](week12.md) |
-| 13–16 | Industry Use Cases (software engineering, data analytics, RAG, marketing) |
+| 13 | [Software Engineering Evaluation](week13.md) |
+| 14–16 | Industry Use Cases (data analytics, RAG, marketing) |
 | 17–18 | Full System Architecture & Capstone |
 
 See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
@@ -151,6 +152,16 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
 📓 **Notebook:** [week12_healthcare_safety.ipynb](week12_healthcare_safety.ipynb)  
 📄 **Content:** [week12.md](week12.md)
+
+### Week 13: Software Engineering Evaluation
+
+- **Code Generation Evaluation:** Learn how to evaluate LLM capabilities for code generation and debugging tasks
+- **Synthetic Bug-Fix Dataset:** Design datasets with function descriptions, buggy code, and expected fixes
+- **Pass/Fail Metrics:** Implement binary pass/fail evaluation using unit tests
+- **Automated Testing:** Describe how BenchRight's engine can run unit tests automatically to score model outputs
+
+📓 **Notebook:** [week13_software_engineering.ipynb](week13_software_engineering.ipynb)  
+📄 **Content:** [week13.md](week13.md)
 
 ## How to Use
 
