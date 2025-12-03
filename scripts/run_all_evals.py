@@ -440,6 +440,17 @@ Examples:
 
   Run with custom settings:
     python scripts/run_all_evals.py --model-path models/tinyGPT.onnx --benchmarks all --num-samples 200 --output-dir my_results
+
+Model Wrapper Requirements:
+  This script currently uses a mock model for demonstration. To use a real model,
+  implement a model wrapper that provides a `generate(prompt: str) -> str` method.
+  
+  For ONNX models:
+    1. Load the model with onnxruntime.InferenceSession
+    2. Use a tokenizer (e.g., from transformers) for input/output processing
+    3. Implement the generate() method to tokenize, run inference, and decode
+    
+  See week17.md for detailed model wrapper implementation examples.
         """,
     )
 
@@ -447,7 +458,8 @@ Examples:
         "--model-path",
         type=str,
         required=True,
-        help="Path to the ONNX model file or model identifier",
+        help="Path to the ONNX model file or model identifier. "
+             "Note: Currently uses a mock model for demonstration.",
     )
 
     parser.add_argument(
@@ -517,12 +529,15 @@ def main():
     # Create model wrapper
     print(f"\n🤖 Loading model...")
 
-    # For now, use mock model wrapper
-    # In production, this would load the actual ONNX model
+    # NOTE: This currently uses a mock model wrapper for demonstration.
+    # To use a real ONNX model, replace MockModelWrapper with a class that:
+    #   1. Loads the ONNX model using onnxruntime.InferenceSession
+    #   2. Implements generate(prompt: str) -> str using a tokenizer
+    # See week17.md for implementation examples.
     model = MockModelWrapper(args.model_path)
     model_name = model.name.replace(".onnx", "").replace(".", "_")
 
-    print(f"   Model loaded: {model.name}")
+    print(f"   Model loaded: {model.name} (using mock model for demonstration)")
 
     # Run evaluations
     print(f"\n🚀 Starting evaluations...")

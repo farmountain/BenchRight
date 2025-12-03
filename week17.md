@@ -410,10 +410,48 @@ If comparing with a previous model version, use the regression analysis.
 
 ```python
 from src.benchmark_engine import compare_runs, generate_regression_report
+import os
 
 def compare_with_baseline(new_results_df, baseline_path):
-    """Compare new results with baseline and detect regressions."""
-    baseline_df = pd.read_csv(baseline_path)
+    """
+    Compare new results with baseline and detect regressions.
+    
+    Args:
+        new_results_df: DataFrame with current evaluation results
+        baseline_path: Path to baseline CSV file
+        
+    Returns:
+        Regression report dictionary
+        
+    Raises:
+        FileNotFoundError: If baseline file does not exist
+        ValueError: If baseline file format is incompatible
+        
+    Note:
+        The baseline file must have the same columns as new_results_df.
+        At minimum, it should contain 'benchmark' and 'value' columns.
+    """
+    # Check if baseline file exists
+    if not os.path.exists(baseline_path):
+        raise FileNotFoundError(
+            f"Baseline file not found: {baseline_path}. "
+            "Run an evaluation first to create a baseline."
+        )
+    
+    # Load baseline with error handling
+    try:
+        baseline_df = pd.read_csv(baseline_path)
+    except Exception as e:
+        raise ValueError(f"Failed to read baseline file: {e}")
+    
+    # Validate baseline format
+    required_cols = ['benchmark', 'value']
+    missing_cols = [c for c in required_cols if c not in baseline_df.columns]
+    if missing_cols:
+        raise ValueError(
+            f"Baseline file missing required columns: {missing_cols}. "
+            f"Found columns: {list(baseline_df.columns)}"
+        )
     
     report = generate_regression_report(
         run_a_df=baseline_df,
