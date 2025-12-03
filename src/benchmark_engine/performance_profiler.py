@@ -196,12 +196,18 @@ class PerformanceProfiler:
             latencies.append(end_time - start_time)
 
             # Get output token count (from the last run)
+            # For ONNX language models, output is typically logits with shape:
+            # - (batch, seq_len, vocab_size) for 3D output
+            # - (batch, seq_len) for token IDs
+            # We use seq_len as it represents the number of positions processed
+            # For single-pass inference, output tokens equals input tokens
             if outputs and len(outputs) > 0:
                 output_array = outputs[0]
-                # Output shape is typically (batch, seq_len, vocab_size) for LM head
                 if len(output_array.shape) == 3:
+                    # Shape: (batch, seq_len, vocab_size) - seq_len is tokens processed
                     output_tokens_count = output_array.shape[1]
                 elif len(output_array.shape) == 2:
+                    # Shape: (batch, seq_len) - seq_len is tokens processed
                     output_tokens_count = output_array.shape[1]
                 else:
                     output_tokens_count = input_tokens  # Fallback
@@ -217,10 +223,10 @@ class PerformanceProfiler:
         total_tokens = input_tokens + output_tokens_count
         tokens_per_second = total_tokens / avg_latency_seconds if avg_latency_seconds > 0 else 0.0
 
-        # Calculate memory usage
+        # Calculate memory usage (report current memory during inference)
         memory_usage_mb = None
-        if memory_before is not None and memory_after is not None:
-            memory_usage_mb = max(0, memory_after - memory_before) + memory_before
+        if memory_after is not None:
+            memory_usage_mb = memory_after
 
         return {
             "prompt": prompt,
@@ -440,9 +446,10 @@ def create_mock_profiler(
         total_tokens = input_tokens + output_tokens
         tokens_per_second = total_tokens / latency_seconds if latency_seconds > 0 else 0.0
 
+        # Calculate memory usage (report current memory during inference)
         memory_usage_mb = None
-        if memory_before is not None and memory_after is not None:
-            memory_usage_mb = max(memory_before, memory_after)
+        if memory_after is not None:
+            memory_usage_mb = memory_after
 
         return {
             "prompt": prompt,
