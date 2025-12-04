@@ -58,7 +58,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **ONNX Runtime Profiling:** Enable profiling to inspect operator-level timing breakdowns and identify performance bottlenecks
 
 📓 **Notebook:** [week2_tokenization_internals.ipynb](week2_tokenization_internals.ipynb)  
-📄 **Content:** [week2.md](week2.md)
+📄 **Content:** [week2.md](week2.md)  
+📋 **Grading Rubric:** [docs/week2_rubric.md](docs/week2_rubric.md)
 
 ### Week 3: Perplexity & Basic Benchmarks
 
@@ -67,7 +68,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **Pseudo-Perplexity Computation:** Compute approximate perplexity using ONNX models and analyze results across text domains
 
 📓 **Notebook:** [week3_perplexity.ipynb](week3_perplexity.ipynb)  
-📄 **Content:** [week3.md](week3.md)
+📄 **Content:** [week3.md](week3.md)  
+📋 **Grading Rubric:** [docs/week3_rubric.md](docs/week3_rubric.md)
 
 ### Week 4: Industry Benchmark Suites (MMLU, HellaSwag, BBH)
 
@@ -76,7 +78,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **TruthfulQA & ToxiGen:** Evaluate truthfulness and toxicity detection capabilities
 
 📓 **Notebook:** [week4_industry_benchmarks.ipynb](week4_industry_benchmarks.ipynb)  
-📄 **Content:** [week4.md](week4.md)
+📄 **Content:** [week4.md](week4.md)  
+📋 **Grading Rubric:** [docs/week4_rubric.md](docs/week4_rubric.md)
 
 ### Week 5: Building a Generic Benchmark Engine
 
@@ -85,7 +88,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **Built-in Metrics:** Implement exact match, contains match, and custom metric functions for scoring
 
 📓 **Notebook:** [week5_generic_benchmark_engine.ipynb](week5_generic_benchmark_engine.ipynb)  
-📄 **Content:** [week5.md](week5.md)
+📄 **Content:** [week5.md](week5.md)  
+📋 **Grading Rubric:** [docs/week5_rubric.md](docs/week5_rubric.md)
 
 ### Week 6: LLM-as-Judge: Automated Evaluation
 
@@ -94,7 +98,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **Trade-offs Analysis:** Understand when to use automated evaluation vs. human evaluation
 
 📓 **Notebook:** [week6_llm_as_judge.ipynb](week6_llm_as_judge.ipynb)  
-📄 **Content:** [week6.md](week6.md)
+📄 **Content:** [week6.md](week6.md)  
+📋 **Grading Rubric:** [docs/week6_rubric.md](docs/week6_rubric.md)
 
 ### Week 7: Safety & Hallucination Evaluation
 
@@ -103,7 +108,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **Safety Metrics:** Understand truthful/untruthful ratios and toxicity classification methods
 
 📓 **Notebook:** [week7_safety_hallucination.ipynb](week7_safety_hallucination.ipynb)  
-📄 **Content:** [week7.md](week7.md)
+📄 **Content:** [week7.md](week7.md)  
+📋 **Grading Rubric:** [docs/week7_rubric.md](docs/week7_rubric.md)
 
 ### Week 8: Robustness Tests
 
@@ -112,7 +118,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **Stability Metrics:** Calculate and interpret stability scores across input variations
 
 📓 **Notebook:** [week8_robustness.ipynb](week8_robustness.ipynb)  
-📄 **Content:** [week8.md](week8.md)
+📄 **Content:** [week8.md](week8.md)  
+📋 **Grading Rubric:** [docs/week8_rubric.md](docs/week8_rubric.md)
 
 ### Week 9: Performance Profiling
 
@@ -122,7 +129,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **Summary Statistics:** Generate mean, std, min, max for all performance metrics
 
 📓 **Notebook:** [week9_performance_profiling.ipynb](week9_performance_profiling.ipynb)  
-📄 **Content:** [week9.md](week9.md)
+📄 **Content:** [week9.md](week9.md)  
+📋 **Grading Rubric:** [docs/week9_rubric.md](docs/week9_rubric.md)
 
 ### Week 10: Regression & Version Comparison
 
@@ -132,7 +140,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **Comprehensive Reporting:** Generate reports with summary statistics for multiple metrics
 
 📓 **Notebook:** [week10_regression_comparison.ipynb](week10_regression_comparison.ipynb)  
-📄 **Content:** [week10.md](week10.md)
+📄 **Content:** [week10.md](week10.md)  
+📋 **Grading Rubric:** [docs/week10_rubric.md](docs/week10_rubric.md)
 
 ### Week 11: Banking & Compliance Evaluation
 
@@ -142,7 +151,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **Critical Thinking:** Explore the risks of mis-summarizing regulations and when human review is essential
 
 📓 **Notebook:** [week11_banking_compliance.ipynb](week11_banking_compliance.ipynb)  
-📄 **Content:** [week11.md](week11.md)
+📄 **Content:** [week11.md](week11.md)  
+📋 **Grading Rubric:** [docs/week11_rubric.md](docs/week11_rubric.md)
 
 ### Week 12: Healthcare & Safety Evaluation
 
@@ -154,7 +164,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **Safety Warnings:** Understand the unique risks of healthcare AI and the importance of appropriate caution
 
 📓 **Notebook:** [week12_healthcare_safety.ipynb](week12_healthcare_safety.ipynb)  
-📄 **Content:** [week12.md](week12.md)
+📄 **Content:** [week12.md](week12.md)  
+📋 **Grading Rubric:** [docs/week12_rubric.md](docs/week12_rubric.md)
 
 ### Week 13: Software Engineering Evaluation
 
@@ -164,7 +175,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **Automated Testing:** Describe how BenchRight's engine can run unit tests automatically to score model outputs
 
 📓 **Notebook:** [week13_software_engineering.ipynb](week13_software_engineering.ipynb)  
-📄 **Content:** [week13.md](week13.md)
+📄 **Content:** [week13.md](week13.md)  
+📋 **Grading Rubric:** [docs/week13_rubric.md](docs/week13_rubric.md)
 
 ### Week 14: Data Analytics & SQL Evaluation
 
@@ -174,7 +186,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **Query Complexity Analysis:** Analyze which types of queries are hardest for models to generate
 
 📓 **Notebook:** [week14_data_analytics_sql.ipynb](week14_data_analytics_sql.ipynb)  
-📄 **Content:** [week14.md](week14.md)
+📄 **Content:** [week14.md](week14.md)  
+📋 **Grading Rubric:** [docs/week14_rubric.md](docs/week14_rubric.md)
 
 ### Week 15: RAG & Customer Service Evaluation
 
@@ -184,7 +197,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **Retrieval Quality Metrics:** Measure precision, recall, and hit rate for document retrieval
 
 📓 **Notebook:** [week15_rag_customer_service.ipynb](week15_rag_customer_service.ipynb)  
-📄 **Content:** [week15.md](week15.md)
+📄 **Content:** [week15.md](week15.md)  
+📋 **Grading Rubric:** [docs/week15_rubric.md](docs/week15_rubric.md)
 
 ### Week 16: Creative & Marketing Content Evaluation
 
@@ -194,7 +208,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 - **LLM-as-Judge Pattern:** Use the LLM judge pattern to assign scores across multiple criteria at scale
 
 📓 **Notebook:** [week16_creative_marketing.ipynb](week16_creative_marketing.ipynb)  
-📄 **Content:** [week16.md](week16.md)
+📄 **Content:** [week16.md](week16.md)  
+📋 **Grading Rubric:** [docs/week16_rubric.md](docs/week16_rubric.md)
 
 ### Week 17: System Architecture
 
@@ -206,7 +221,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 
 📓 **Notebook:** [week17_system_architecture.ipynb](week17_system_architecture.ipynb)  
 📄 **Content:** [week17.md](week17.md)  
-🛠️ **CLI Tool:** [scripts/run_all_evals.py](scripts/run_all_evals.py)
+🛠️ **CLI Tool:** [scripts/run_all_evals.py](scripts/run_all_evals.py)  
+📋 **Grading Rubric:** [docs/week17_rubric.md](docs/week17_rubric.md)
 
 ### Week 18: Capstone & Report Generation
 
@@ -219,7 +235,8 @@ See [docs/syllabus.md](docs/syllabus.md) for detailed learning objectives.
 📓 **Notebook:** [week18_capstone.ipynb](week18_capstone.ipynb)  
 📄 **Content:** [week18.md](week18.md)  
 🛠️ **Report Generator:** [scripts/generate_pdf_report.py](scripts/generate_pdf_report.py)  
-📋 **Report Template:** [src/templates/eval_report_template.md](src/templates/eval_report_template.md)
+📋 **Report Template:** [src/templates/eval_report_template.md](src/templates/eval_report_template.md)  
+📋 **Grading Rubric:** [docs/week18_rubric.md](docs/week18_rubric.md)
 
 ## How to Use
 
@@ -244,14 +261,19 @@ BenchRight/
 ├── requirements.txt               # Python dependencies
 ├── week1.md                       # Week 1 content
 ├── week1_intro_evaluation.ipynb   # Week 1 Google Colab notebook
-├── ...                            # Week 2-17 content and notebooks
+├── ...                            # Week 2-18 content and notebooks
 ├── docs/
 │   ├── syllabus.md                # 18-week curriculum overview
-│   └── week1_rubric.md            # Week 1 mini-project grading rubric
+│   ├── week1_rubric.md            # Week 1 mini-project grading rubric
+│   ├── week2_rubric.md            # Week 2 mini-project grading rubric
+│   ├── ...                        # Week 3-17 grading rubrics
+│   └── week18_rubric.md           # Week 18 capstone grading rubric
 ├── scripts/
-│   └── run_all_evals.py           # CLI tool for running evaluations
+│   ├── run_all_evals.py           # CLI tool for running evaluations
+│   └── generate_pdf_report.py     # Report generation tool
 ├── src/
-│   └── benchmark_engine/          # Core evaluation engine modules
+│   ├── benchmark_engine/          # Core evaluation engine modules
+│   └── templates/                 # Report templates
 ├── results/                       # Evaluation output files (CSV, Markdown)
 ├── examples/                      # Example outputs and results
 └── LICENSE                        # Apache 2.0 License
