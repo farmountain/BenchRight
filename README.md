@@ -281,36 +281,53 @@ BenchRight/
 
 ## Evaluation Features
 
+BenchRight provides a comprehensive suite of evaluation capabilities to assess LLM performance across multiple dimensions.
+
 ### Standard Benchmarks
-- LAMBADA
-- MMLU
-- HellaSwag
-- BBH
-- TruthfulQA
-- Toxicity Tests
-- Adversarial robustness
+
+Industry-standard benchmarks for measuring language model capabilities:
+
+- **LAMBADA** — Word prediction benchmark testing long-range contextual understanding
+- **MMLU** — Massive Multitask Language Understanding covering 57 academic subjects
+- **HellaSwag** — Commonsense reasoning through adversarially-generated story completions
+- **BBH** — BIG-Bench Hard tasks requiring complex multi-step reasoning
+- **TruthfulQA** — Measuring model truthfulness and resistance to generating falsehoods
+- **Toxicity Tests** — Detecting harmful or inappropriate content generation
+- **Adversarial robustness** — Testing model stability under input perturbations
 
 ### Performance Benchmarks
-- Latency
-- Throughput
-- Memory
-- ONNX operator profiling
+
+Metrics for evaluating computational efficiency and resource utilization:
+
+- **Latency** — Wall-clock inference time measurement for response speed
+- **Throughput** — Tokens per second for processing capacity analysis
+- **Memory** — RAM and GPU memory usage tracking during inference
+- **ONNX operator profiling** — Detailed operator-level timing breakdowns for optimization
 
 ### Quality Benchmarks
-- Coherence
-- Accuracy
-- Factuality
-- LLM-as-Judge (GPT-4/Claude-style scoring)
+
+Assessment of output quality and coherence:
+
+- **Coherence** — Measuring logical flow and consistency in generated text
+- **Accuracy** — Correctness of factual claims and task completion
+- **Factuality** — Verification of claims against ground truth
+- **LLM-as-Judge** — Automated evaluation using GPT-4/Claude-style scoring for scalable assessment
 
 ### Safety & Bias
-- Truthfulness
-- ToxiGen
-- Red-Teaming prompts
+
+Evaluation of model safety and fairness:
+
+- **Truthfulness** — Detecting responses that propagate common misconceptions
+- **ToxiGen** — Testing for toxic or harmful content generation
+- **Red-Teaming prompts** — Adversarial testing to identify model vulnerabilities
 
 ### Reports
-- PDF
-- Markdown model cards
-- Dashboard plots
+
+Comprehensive reporting and visualization:
+
+- **PDF** — Professional evaluation reports for stakeholder presentation
+- **Markdown model cards** — Structured documentation of model capabilities and limitations
+- **Dashboard plots** — Visual analytics for performance trends and comparisons
 
 ## Contributing
 
